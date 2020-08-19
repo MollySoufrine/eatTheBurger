@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center" id="top-bar">
+            <img src="/assets/images/burger.png" alt="burger" />
+            <h1> Eat-Da-Burger! </h1>
+            <h1>Add a burger or Eat a burger!</h1>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <form method="POST" action="burgers/create" class="button">
+                <textarea type="text" name="burger_name"></textarea>
+                <button type="submit">Add a Burger!</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <ul>
+            {{#each burgers}}
+            {{#unless this.devoured}}
+            {{> burgers/burgers-block devoured=true}}
+            {{/unless}}
+            {{/each}}
+            {{!-- the JS file that is in public_assets will have the ajax calls with the put/post and all --}}
+        </ul>
+    </div>
+
+    <div>
+        <ul>
+            {{#each burgers}}
+            {{#unless this.devoured}}
+            {{> burgers/burgers-block devoured=false}}
+            {{/unless}}
+            {{/each}}
+            {{!-- the JS file that is in public_assets will have the ajax calls with the put/post and all --}}
+        </ul>
+    </div>
+    <div>
+        <form class="creat-new-burger">
+            <div class="form-group">
+                <label for="burg">
+                    Burger Name:
+                </label>
+                <input type="test" id="burg" name="name">
+            </div>
+            <button type="submit">Add a new Burger!</button>
+        </form>
+    </div>
+</div>
+
+{{!-- 
+//Create a button in index.handlebars that will submit the user input into the database. --}}
