@@ -11,9 +11,8 @@ var burger = {
       cb(res);
     });
   },
-  update: function (condition, id, cb) {
-    condition = "devoured = true";
-    orm.update("burgers", id, condition, function (res) {
+  updateOne: function (objColVals, condition, cb) {
+    orm.updateOne("burgers", objColVals, condition, function (res) {
       cb(res);
     });
   },
