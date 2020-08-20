@@ -16,27 +16,6 @@
         </div>
     </div>
     <div>
-        <ul>
-            {{#each burgers}}
-            {{#unless this.devoured}}
-            {{> burgers/burgers-block devoured=true}}
-            {{/unless}}
-            {{/each}}
-            {{!-- the JS file that is in public_assets will have the ajax calls with the put/post and all --}}
-        </ul>
-    </div>
-
-    <div>
-        <ul>
-            {{#each burgers}}
-            {{#unless this.devoured}}
-            {{> burgers/burgers-block devoured=false}}
-            {{/unless}}
-            {{/each}}
-            {{!-- the JS file that is in public_assets will have the ajax calls with the put/post and all --}}
-        </ul>
-    </div>
-    <div>
         <form class="creat-new-burger">
             <div class="form-group">
                 <label for="burg">
@@ -46,6 +25,26 @@
             </div>
             <button type="submit">Add a new Burger!</button>
         </form>
+    </div>
+    <div>
+
+        {{#each burgerdata}}
+        {{#unless this.devoured}}
+        {{/unless}}
+        {{/each}}
+        {{!-- the JS file that is in public_assets will have the ajax calls with the put/post and all --}}
+
+    </div>
+
+    <div>
+
+        {{#each burgerdata}}
+        {{#if this.devoured}}
+
+        {{/if}}
+        {{/each}}
+        {{!-- the JS file that is in public_assets will have the ajax calls with the put/post and all --}}
+
     </div>
 </div>
 

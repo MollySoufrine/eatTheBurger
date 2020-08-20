@@ -1,4 +1,4 @@
-var connection = require("./connection.js");
+var connection = require("../config/connection.js");
 
 var orm = {
   selectAll: function (tableInput, cb) {
@@ -11,7 +11,7 @@ var orm = {
       cb(result);
     });
   },
-  create: function (table, cols, vals, cb) {
+  insertOne: function (table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table + " SET ?";
 
     console.log(queryString);

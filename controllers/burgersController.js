@@ -8,19 +8,16 @@ router.get("/", function (req, res) {
   res.redirect("/burgers");
 });
 
-router.get("/api/burgers", function (req, res) {
+router.get("/burgers", function (req, res) {
   // express callback response by calling burger.selectAllBurger
-  burger.all(function (data) {
-    var objectBurger = {
-      burgers: data,
-    };
+  burger.all(function (burgerdata) {
     // wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
-    res.render("index", objectBurger);
+    res.render("index", { burgerdata });
   });
 });
 
 // post route -> back to index
-router.post("/api/burgers/create", function (req, res) {
+router.post("/burgers/create", function (req, res) {
   burger.create(
     ["name", "devoured"],
     [req.body.name, req.body.devoured],
@@ -32,7 +29,7 @@ router.post("/api/burgers/create", function (req, res) {
 });
 
 // put route -> back to index
-router.put("/api/burgers/:id", function (req, res) {
+router.put("/burgers/:id", function (req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
   burger.update(
